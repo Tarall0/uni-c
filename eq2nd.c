@@ -8,18 +8,21 @@ int main() {
     float delta;
 
     // initialize coefficients of the equation
-    a = 1;
-    b = 0;
-    c = -16;
+    a = 50;
+    b = 77;
+    c = -79;
 
     // Calculate delta of the equation
     delta = (b*b)-4*a*c;
 
     printf("\n△ : %4.f", delta);
-    printf("\n\nSolutions:\n");
 
     if(a == 0) {
-        printf("To implement!!!!");
+        printf("bx + c = 0\n");
+        printf("\n\nSolution:\n");
+
+        float x = -c / b;
+        printf("x = %f", x);
         return 0;
     }
 
@@ -34,6 +37,7 @@ int main() {
         x1 = (-b + sqrt(delta)) / (2*a);
         x2 = (-b - sqrt(delta)) / (2*a);
 
+        printf("\n\nSolutions:\n");
         printf("x1 = %4.f\nx2 = %4.f", x1, x2);
 
     }
@@ -41,3 +45,4 @@ int main() {
 
     return 0;
 }
+
