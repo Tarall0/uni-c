@@ -85,8 +85,13 @@ int main() {
         }
     }
 
+    // free the memory
+    free(values);
+    free(codes);
+
     printf("\n*** Results  ***\n");
     printf("%d", somma);
 
     return 0;
 }
+
