@@ -33,13 +33,13 @@ int main() {
 
         printf("Token: %s\n", token);
 
-        //Removing the delimitator char \0 and adding a space instead to reconstruct the string
-        token[len] = ' ';
+        // Add a space before the next token to reconstruct the string
+        if(token !=text) {
+            token[-1] = ' ';
+        }
     }
-    // Adding terminator char to the string that was previously removed in order to reconstruct the  string
-    text[len] = '\0';
-
+    
     printf("Text: %s", text);
-
     return 0;
 }
+
