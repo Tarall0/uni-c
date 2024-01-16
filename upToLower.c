@@ -17,12 +17,13 @@ int main() {
 
     // reading data from stdin until a newline is found or end-of-file occurs
     // using gets for the sake of knowledge (unsafe usage) https://en.cppreference.com/w/c/io/gets
-    gets(text);
-    int len = strlen(text);
+    // Using fgets for safer input https://learn.microsoft.com/it-it/cpp/c-runtime-library/reference/fgets-fgetws?view=msvc-170
+    fgets(text, sizeof(text), stdin);
+    char *saveptr;  // for strtok_r
 
-    // Using strtok function https://en.cppreference.com/w/c/string/byte/strtok
+    // Using strtok_r function https://en.cppreference.com/w/c/string/byte/strtok char	*strtok_r(char *__str, const char *__sep, char **__lasts);
     // Following the simple for structure - init | condition | statement(s) -
-    for(token = strtok(text, delim); token != NULL; token = strtok(NULL, delim)){
+    for(token = strtok_r(text, delim, &saveptr); token != NULL; token = strtok_r(NULL, delim, &saveptr)){
         int len = strlen(token);
         for(int i = 0; i < len ; i++){
             // Using toupper function for all the char in the token https://en.cppreference.com/w/c/string/byte/toupper
@@ -30,16 +31,16 @@ int main() {
         }
         //converting the first char to lower case
         token[0] = tolower(token[0]);
-
         printf("Token: %s\n", token);
 
         // Add a space before the next token to reconstruct the string
-        if(token !=text) {
-            token[-1] = ' ';
+        if (saveptr != NULL) {
+            saveptr[-1] = ' ';
         }
     }
-    
+
     printf("Text: %s", text);
     return 0;
 }
+
 
