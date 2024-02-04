@@ -8,10 +8,10 @@
  * It skips leading whitespaces, handles the sign, and interprets both the integer and fractional parts.
  * 
  * Parameters:
- * - s: The input string to be converted to a double.
+ * @param s: The input string to be converted to a double.
  * 
  * Returns:
- * - The equivalent double value of the input string.
+ * @return The equivalent double value of the input string.
  * 
  * Note:
  * - This is a simplified/dummy version of the atof function of the stlib.h atof function and it does not handle all possible edge cases or it may not be suitable for all scenarios
